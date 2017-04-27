@@ -39,7 +39,11 @@ class Question
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="questions")
      */
     private $category;
+    /**
+     * @ORM\OneToMany(targetEntity="Reponse", mappedBy="question")
+     */
 
+    private $reponses;
     /**
      * Get id
      *
@@ -120,5 +124,46 @@ class Question
     public function getCategory()
     {
         return $this->category;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reponses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add reponse
+     *
+     * @param \wcs\hackathonBundle\Entity\Reponse $reponse
+     *
+     * @return Question
+     */
+    public function addReponse(\wcs\hackathonBundle\Entity\Reponse $reponse)
+    {
+        $this->reponses[] = $reponse;
+
+        return $this;
+    }
+
+    /**
+     * Remove reponse
+     *
+     * @param \wcs\hackathonBundle\Entity\Reponse $reponse
+     */
+    public function removeReponse(\wcs\hackathonBundle\Entity\Reponse $reponse)
+    {
+        $this->reponses->removeElement($reponse);
+    }
+
+    /**
+     * Get reponses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReponses()
+    {
+        return $this->reponses;
     }
 }
