@@ -21,6 +21,11 @@ class Question
      */
     private $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="string", length=255, nullable=true)
+     */
 
     private $content;
 

@@ -19,13 +19,12 @@ class DefaultController extends Controller
     /**
      * @Route("/register")
      */
+
     public function registerAction()
     {
         $username = $_POST['username'];
-
         $session = new Session();
         $session->set('username',$username);
-
         return $this->redirect('/category', 301);
     }
 }

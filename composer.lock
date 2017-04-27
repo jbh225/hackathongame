@@ -1536,6 +1536,7 @@
             "time": "2016-11-22T11:42:57+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "symfony/assetic-bundle",
             "version": "v2.8.1",
             "source": {
@@ -1607,6 +1608,8 @@
 
         },
         {
+=======
+>>>>>>> ae09bcd61b709f728ff948738c7df1095350355e
             "name": "symfony/monolog-bundle",
             "version": "v3.1.0",
             "source": {

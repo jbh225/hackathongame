@@ -1,0 +1,31 @@
+.register{
+    margin-left: 400px;
+    margin-top: 150px;
+}
+
+.btnregister{
+    margin-left: 500px;
+    margin-top: 30px;
+}
+
+
+.category{
+    margin-left: 400px;
+    margin-top: 70px;
+    text-align: center;
+}
+
+ul {
+    list-style:none;
+
+}
+li {
+    margin-bottom: 0;
+}
+
+.btn{
+    width:250px;
+    height: 70px;
+    margin: 10px;
+
+}

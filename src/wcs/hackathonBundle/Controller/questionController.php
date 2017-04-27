@@ -17,12 +17,12 @@ class questionController extends Controller
     /**
      * @Route("/showquestion/{id}")
      */
-    public function showQuestionAction(Question $question)
+    public function showQuestionAction($id)
     {
-        dump($question);
-//        $em = $this->getDoctrine()->getManager();
-//        $question = $em->getRepository('wcshackathonBundle:Question')
-//            ->find($id);
-        return $this->render('wcshackathonBundle:Default:questions.html.twig',array('question'=>$question));
+
+       $em = $this->getDoctrine()->getManager();
+        $question = $em->getRepository('wcshackathonBundle:Question')
+            ->find($id);
+        return $this->render('wcshackathonBundle:Default:question.html.twig',array('question'=>$question));
     }
 }
