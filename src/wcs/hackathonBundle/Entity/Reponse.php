@@ -30,24 +30,24 @@ class Reponse
     /**
      * @var string
      *
-     * @ORM\Column(name="answer", type="string", length=255)
+     * @ORM\Column(name="choice", type="string", length=255)
      */
-    private $answer_choice;
+    private $choice;
 
     /**
      * @return mixed
      */
-    public function getAnswerChoice()
+    public function getChoice()
     {
-        return $this->answer_choice;
+        return $this->choice;
     }
 
     /**
      * @param mixed $answer_choice
      */
-    public function setAnswerChoice($answer_choice)
+    public function setChoice($choice)
     {
-        $this->answer_choice = $answer_choice;
+        $this->answer_choice = $choice;
     }
 
     /**
