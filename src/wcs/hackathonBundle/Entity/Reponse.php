@@ -43,11 +43,13 @@ class Reponse
     }
 
     /**
-     * @param mixed $answer_choice
+     * @param mixed $choice
      */
     public function setChoice($choice)
     {
-        $this->answer_choice = $choice;
+
+        $this->choice = $choice;
+
     }
 
     /**
@@ -56,28 +58,6 @@ class Reponse
 
     private $question;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_question", type="integer")
-     */
-    private $id_question;
-
-    /**
-     * @return string
-     */
-    public function getIdQuestion()
-    {
-        return $this->id_question;
-    }
-
-    /**
-     * @param string $id_question
-     */
-    public function setIdQuestion($id_question)
-    {
-        $this->id_question = $id_question;
-    }
 
     /**
      * Get id
