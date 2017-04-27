@@ -12,7 +12,20 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('wcshackathonBundle:Default:connexion.html.twig');
+        session_unset();
+        return $this->render('wcshackathonBundle:Default:index.html.twig');
     }
 
+    /**
+     * @Route("/register")
+     */
+
+    public function username()
+    {
+        $username= $_POST['username'];
+        $SESSION['username']= $username;
+        header('location:category');
+        return $this->render('wcshackathonBundle:Default:category.html.twig');
+
+    }
 }
