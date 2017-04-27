@@ -1,16 +1,19 @@
+body{
+    background-color: #333333;
+}
 .register{
-    margin-left: 400px;
+    margin: 0 auto;
     margin-top: 150px;
 }
 
 .btnregister{
-    margin-left: 500px;
+    margin: 0 auto;
     margin-top: 30px;
 }
 
-
 .category{
-    margin-left: 400px;
+
+    margin: 0 auto;
     margin-top: 70px;
     text-align: center;
 }
@@ -24,8 +27,7 @@ li {
 }
 
 .btn{
-    width:250px;
-    height: 70px;
+    width: 250px;
+    height: 50px;
     margin: 10px;
-
 }

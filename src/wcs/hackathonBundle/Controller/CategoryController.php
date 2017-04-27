@@ -14,6 +14,13 @@ class CategoryController extends Controller
     public function indexAction()
     {
         $session = new Session();
-        return $this->render('wcshackathonBundle:Default:category.html.twig', array('user' => $session->get('username')));
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository('wcshackathonBundle:Category')->findAll();
+
+        return $this->render('wcshackathonBundle:Default:category.html.twig',
+            array(
+                'categories' => $category,
+                'user' => $session->get('username'),
+                ));
     }
 }
