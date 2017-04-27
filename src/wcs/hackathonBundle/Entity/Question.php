@@ -24,7 +24,7 @@ class Question
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255)
+     * @ORM\Column(name="category_id", type="string", length=255)
      */
 
     private  $category_id;
@@ -45,6 +45,11 @@ class Question
         $this->category_id = $category_id;
     }
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="string", length=255)
+     */
     private $content;
 
     /**
