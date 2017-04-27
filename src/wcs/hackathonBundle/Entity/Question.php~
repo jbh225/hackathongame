@@ -26,25 +26,6 @@ class Question
      *
      * @ORM\Column(name="content", type="string", length=255)
      */
-
-    private  $category_id;
-
-    /**
-     * @return string
-     */
-    public function getCategoryId()
-    {
-        return $this->category_id;
-    }
-
-    /**
-     * @param string $category_id
-     */
-    public function setCategoryId($category_id)
-    {
-        $this->category_id = $category_id;
-    }
-
     private $content;
 
     /**
@@ -143,46 +124,5 @@ class Question
     public function getCategory()
     {
         return $this->category;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->reponses = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add reponse
-     *
-     * @param \wcs\hackathonBundle\Entity\Reponse $reponse
-     *
-     * @return Question
-     */
-    public function addReponse(\wcs\hackathonBundle\Entity\Reponse $reponse)
-    {
-        $this->reponses[] = $reponse;
-
-        return $this;
-    }
-
-    /**
-     * Remove reponse
-     *
-     * @param \wcs\hackathonBundle\Entity\Reponse $reponse
-     */
-    public function removeReponse(\wcs\hackathonBundle\Entity\Reponse $reponse)
-    {
-        $this->reponses->removeElement($reponse);
-    }
-
-    /**
-     * Get reponses
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getReponses()
-    {
-        return $this->reponses;
     }
 }
