@@ -27,7 +27,11 @@ class Reponse
      * @ORM\Column(name="answer", type="string", length=255)
      */
     private $answer;
+    /**
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponses")
+     */
 
+    private $question;
 
     /**
      * @var string
@@ -84,5 +88,29 @@ class Reponse
     public function getAnswer()
     {
         return $this->answer;
+    }
+
+    /**
+     * Set question
+     *
+     * @param \wcs\hackathonBundle\Entity\Question $question
+     *
+     * @return Reponse
+     */
+    public function setQuestion(\wcs\hackathonBundle\Entity\Question $question = null)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return \wcs\hackathonBundle\Entity\Question
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 }
