@@ -7,4 +7,10 @@
 <h1>tu es maintenant sur la page des questions</h1>
     <p>{{ question.content }}</p>
 
+    <form action="/respond" method="post">
+        <input type="hidden" name="myQuestion" value="{{ question.id }}">
+        <input type="radio" name="answer" value="0" checked> OUI<br>
+        <input type="radio" name="answer" value="1"> NON<br>
+        <button type="submit">Validate</button>
+    </form>
 </div>
