@@ -47,7 +47,9 @@ class Reponse
      */
     public function setChoice($choice)
     {
+
         $this->choice = $choice;
+
     }
 
     /**
