@@ -1,0 +1,4 @@
+wcshackathon:
+    resource: "@wcshackathonBundle/Controller/"
+    type:     annotation
+    prefix:   /
