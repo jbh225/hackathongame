@@ -28,6 +28,29 @@ class Reponse
      */
     private $answer;
     /**
+     * @var string
+     *
+     * @ORM\Column(name="answer", type="string", length=255)
+     */
+    private $answer_choice;
+
+    /**
+     * @return mixed
+     */
+    public function getAnswerChoice()
+    {
+        return $this->answer_choice;
+    }
+
+    /**
+     * @param mixed $answer_choice
+     */
+    public function setAnswerChoice($answer_choice)
+    {
+        $this->answer_choice = $answer_choice;
+    }
+
+    /**
      * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponses")
      */
 
