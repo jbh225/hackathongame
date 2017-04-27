@@ -6,14 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-class CategoryController extends Controller
+class QuestionsController extends Controller
 {
     /**
-     * @Route("/category")
+     * @Route("/questions")
      */
     public function indexAction()
     {
-        $session = new Session();
-        return $this->render('wcshackathonBundle:Default:category.html.twig', array('user' => $session->get('username')));
+        return $this->render('wcshackathonBundle:Default:questions.html.twig');
     }
 }
