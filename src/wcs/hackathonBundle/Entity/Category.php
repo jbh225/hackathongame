@@ -28,6 +28,10 @@ class Categories
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="category")
+     */
+    private $questions;
 
     /**
      * Get id

@@ -34,6 +34,13 @@ class questions
      *
      * @return int
      */
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedby="questions")
+     */
+
+    private $category;
+
     public function getId()
     {
         return $this->id;
