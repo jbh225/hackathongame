@@ -63,4 +63,3 @@ class Categories
         return $this->name;
     }
 }
-

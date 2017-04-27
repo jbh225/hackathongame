@@ -94,4 +94,3 @@ class highscore
         return $this->score;
     }
 }
-

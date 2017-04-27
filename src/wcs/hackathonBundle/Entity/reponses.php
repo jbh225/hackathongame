@@ -63,4 +63,3 @@ class reponses
         return $this->answer;
     }
 }
-
