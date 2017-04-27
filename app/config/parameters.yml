@@ -1,21 +1,12 @@
-<<<<<<< HEAD
 # This file is auto-generated during the composer install
 parameters:
     database_host: 127.0.0.1
-=======
-parameters:
-    database_host: localhost
->>>>>>> yomgui
     database_port: 3306
     database_name: hackgames
     database_user: malik
     database_password: newuser1
     mailer_transport: smtp
-<<<<<<< HEAD
-    mailer_host: null
-=======
     mailer_host: 127.0.0.1
->>>>>>> yomgui
     mailer_user: null
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
