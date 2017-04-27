@@ -5,12 +5,12 @@ namespace wcs\hackathonBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * reponses
+ * Reponse
  *
- * @ORM\Table(name="reponses")
- * @ORM\Entity(repositoryClass="wcs\hackathonBundle\Repository\reponsesRepository")
+ * @ORM\Table(name="reponse")
+ * @ORM\Entity(repositoryClass="wcs\hackathonBundle\Repository\ReponseRepository")
  */
-class reponses
+class Reponse
 {
     /**
      * @var int
@@ -27,7 +27,11 @@ class reponses
      * @ORM\Column(name="answer", type="string", length=255)
      */
     private $answer;
+    /**
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponses")
+     */
 
+    private $question;
 
     /**
      * Get id
@@ -44,7 +48,7 @@ class reponses
      *
      * @param string $answer
      *
-     * @return reponses
+     * @return Reponse
      */
     public function setAnswer($answer)
     {
@@ -63,4 +67,3 @@ class reponses
         return $this->answer;
     }
 }
-
