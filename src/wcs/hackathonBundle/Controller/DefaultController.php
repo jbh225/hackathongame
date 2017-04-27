@@ -20,12 +20,10 @@ class DefaultController extends Controller
      * @Route("/register")
      */
 
-    public function username()
+    public function registerAction()
     {
         $username= $_POST['username'];
         $SESSION['username']= $username;
-        header('location:category');
-        return $this->render('wcshackathonBundle:Default:category.html.twig');
-
+        return $this->redirect('/category', 301);
     }
 }
