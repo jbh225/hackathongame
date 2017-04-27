@@ -4,6 +4,7 @@ namespace wcs\hackathonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller
 {
@@ -12,7 +13,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('wcshackathonBundle:Default:connexion.html.twig');
+        return $this->render('wcshackathonBundle:Default:index.html.twig');
     }
 
     /**
@@ -20,9 +21,11 @@ class DefaultController extends Controller
      */
     public function registerAction()
     {
-        session_unset();
         $username = $_POST['username'];
-        $_SESSION['username'] = $username;
-        return header('Location : /category');
+
+        $session = new Session();
+        $session->set('username',$username);
+
+        return $this->redirect('/category', 301);
     }
 }
