@@ -10,8 +10,9 @@
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
-!var/SymfonyRequirements.php
+!var/Symfon:yRequirements.php
 /vendor/
 /web/bundles/
 /.idea
+/app/config/parameters.yml
 
