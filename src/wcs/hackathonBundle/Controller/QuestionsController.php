@@ -2,17 +2,24 @@
 
 namespace wcs\hackathonBundle\Controller;
 
+
+use hackathonBundle\Entity\Question;
+use Symfony\Bridge\Doctrine\Tests\Fixtures\Person;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class QuestionsController extends Controller
 {
     /**
-     * @Route("/questions")
+     * @Route("/question/{id}")
      */
-    public function indexAction()
+    public function questionAction(Question $question)
     {
-        return $this->render('wcshackathonBundle:Default:questions.html.twig');
+        $em = $this->getDoctrine()->getManager();
+//         select * from question where id=$id
+//         $question = $em->getRepository('hackathonBundle:Question')->find($id);
+
+
+        return $this->render('wcshackathonBundle:Default:questions.html.twig',['question' => $question]);
     }
 }
