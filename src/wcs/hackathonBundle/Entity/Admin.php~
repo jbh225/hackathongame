@@ -5,12 +5,12 @@ namespace wcs\hackathonBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * highscore
+ * Admin
  *
- * @ORM\Table(name="highscore")
- * @ORM\Entity(repositoryClass="wcs\hackathonBundle\Repository\highscoreRepository")
+ * @ORM\Table(name="admin")
+ * @ORM\Entity(repositoryClass="wcs\hackathonBundle\Repository\AdminRepository")
  */
-class highscore
+class Admin
 {
     /**
      * @var int
@@ -29,11 +29,11 @@ class highscore
     private $user;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="score", type="integer")
+     * @ORM\Column(name="pass", type="string", length=255)
      */
-    private $score;
+    private $pass;
 
 
     /**
@@ -51,7 +51,7 @@ class highscore
      *
      * @param string $user
      *
-     * @return highscore
+     * @return Admin
      */
     public function setUser($user)
     {
@@ -71,27 +71,26 @@ class highscore
     }
 
     /**
-     * Set score
+     * Set pass
      *
-     * @param integer $score
+     * @param string $pass
      *
-     * @return highscore
+     * @return Admin
      */
-    public function setScore($score)
+    public function setPass($pass)
     {
-        $this->score = $score;
+        $this->pass = $pass;
 
         return $this;
     }
 
     /**
-     * Get score
+     * Get pass
      *
-     * @return int
+     * @return string
      */
-    public function getScore()
+    public function getPass()
     {
-        return $this->score;
+        return $this->pass;
     }
 }
-
