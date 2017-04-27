@@ -26,6 +26,25 @@ class Question
      *
      * @ORM\Column(name="content", type="string", length=255)
      */
+
+    private  $category_id;
+
+    /**
+     * @return string
+     */
+    public function getCategoryId()
+    {
+        return $this->category_id;
+    }
+
+    /**
+     * @param string $category_id
+     */
+    public function setCategoryId($category_id)
+    {
+        $this->category_id = $category_id;
+    }
+
     private $content;
 
     /**
