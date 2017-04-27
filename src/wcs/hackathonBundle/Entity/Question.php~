@@ -97,28 +97,4 @@ class Question
     {
         return $this->type;
     }
-
-    /**
-     * Set category
-     *
-     * @param \wcs\hackathonBundle\Entity\Category $category
-     *
-     * @return Question
-     */
-    public function setCategory(\wcs\hackathonBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \wcs\hackathonBundle\Entity\Category
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
 }
