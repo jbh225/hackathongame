@@ -27,57 +27,12 @@ class Reponse
      * @ORM\Column(name="answer", type="string", length=255)
      */
     private $answer;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="choice", type="string", length=255)
-     */
-    private $choice;
-
-    /**
-     * @return mixed
-     */
-    public function getChoice()
-    {
-        return $this->choice;
-    }
-
-    /**
-     * @param mixed $answer_choice
-     */
-    public function setChoice($choice)
-    {
-        $this->answer_choice = $choice;
-    }
 
     /**
      * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponses")
      */
-
     private $question;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="id_question", type="integer")
-     */
-    private $id_question;
-
-    /**
-     * @return string
-     */
-    public function getIdQuestion()
-    {
-        return $this->id_question;
-    }
-
-    /**
-     * @param string $id_question
-     */
-    public function setIdQuestion($id_question)
-    {
-        $this->id_question = $id_question;
-    }
 
     /**
      * Get id

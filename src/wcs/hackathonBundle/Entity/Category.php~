@@ -27,6 +27,7 @@ class Category
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
     /**
      * @ORM\OneToMany(targetEntity="Question", mappedBy="category")
      */
@@ -65,47 +66,5 @@ class Category
     {
         return $this->name;
     }
-
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->questions = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add question
-     *
-     * @param \wcs\hackathonBundle\Entity\Question $question
-     *
-     * @return Category
-     */
-    public function addQuestion(\wcs\hackathonBundle\Entity\Question $question)
-    {
-        $this->questions[] = $question;
-
-        return $this;
-    }
-
-    /**
-     * Remove question
-     *
-     * @param \wcs\hackathonBundle\Entity\Question $question
-     */
-    public function removeQuestion(\wcs\hackathonBundle\Entity\Question $question)
-    {
-        $this->questions->removeElement($question);
-    }
-
-    /**
-     * Get questions
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getQuestions()
-    {
-        return $this->questions;
-    }
 }
+

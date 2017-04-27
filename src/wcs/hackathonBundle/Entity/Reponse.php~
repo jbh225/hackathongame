@@ -27,11 +27,12 @@ class Reponse
      * @ORM\Column(name="answer", type="string", length=255)
      */
     private $answer;
+
     /**
      * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponses")
      */
-
     private $question;
+
 
     /**
      * Get id
@@ -67,3 +68,4 @@ class Reponse
         return $this->answer;
     }
 }
+

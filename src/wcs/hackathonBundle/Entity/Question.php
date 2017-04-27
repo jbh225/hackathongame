@@ -26,42 +26,23 @@ class Question
      *
      * @ORM\Column(name="content", type="string", length=255)
      */
-
-    private  $category_id;
-
-    /**
-     * @return string
-     */
-    public function getCategoryId()
-    {
-        return $this->category_id;
-    }
-
-    /**
-     * @param string $category_id
-     */
-    public function setCategoryId($category_id)
-    {
-        $this->category_id = $category_id;
-    }
-
     private $content;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="choice", type="string", length=255)
      */
-    private $type;
+    private $choice;
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="questions")
      */
     private $category;
+
     /**
      * @ORM\OneToMany(targetEntity="Reponse", mappedBy="question")
      */
-
     private $reponses;
     /**
      * Get id
@@ -98,27 +79,34 @@ class Question
     }
 
     /**
-     * Set type
+     * Set choice
      *
-     * @param string $type
+     * @param string $choice
      *
      * @return Question
      */
-    public function setType($type)
+    public function setChoice($choice)
     {
-        $this->type = $type;
+        $this->choice = $choice;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get choice
      *
      * @return string
      */
-    public function getType()
+    public function getChoice()
     {
-        return $this->type;
+        return $this->choice;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reponses = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -143,13 +131,6 @@ class Question
     public function getCategory()
     {
         return $this->category;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->reponses = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

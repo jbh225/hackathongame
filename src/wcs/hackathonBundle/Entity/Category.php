@@ -27,6 +27,7 @@ class Category
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
     /**
      * @ORM\OneToMany(targetEntity="Question", mappedBy="category")
      */
@@ -65,8 +66,6 @@ class Category
     {
         return $this->name;
     }
-
-
     /**
      * Constructor
      */
