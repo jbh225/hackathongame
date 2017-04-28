@@ -32,6 +32,6 @@ class DefaultController extends Controller
         $username = $_POST['username'];
         $session = new Session();
         $session->set('username', $username);
-        return $this->redirect('/category', 301);
+        return $this->redirect('/playcategory', 301);
     }
 }

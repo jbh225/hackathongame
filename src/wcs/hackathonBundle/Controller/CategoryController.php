@@ -15,6 +15,22 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CategoryController extends Controller
 {
+
+//    /**
+//     * @Route("/category")
+//     */
+//    public function publicAction()
+//    {
+//        $session = new Session();
+//        $em = $this->getDoctrine()->getManager();
+//        $categories = $em->getRepository('wcshackathonBundle:Category')->findAll();
+//
+//        return $this->render('wcshackathonBundle:Default:category.html.twig',
+//            array(
+//                'categories' => $categories,
+//                'user' => $session->get('username'),
+//            ));
+//    }
     /**
      * Lists all category entities.
      *
@@ -134,4 +150,6 @@ class CategoryController extends Controller
             ->getForm()
         ;
     }
+
+
 }
