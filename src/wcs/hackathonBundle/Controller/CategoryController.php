@@ -5,7 +5,8 @@ namespace wcs\hackathonBundle\Controller;
 use wcs\hackathonBundle\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Category controller.
@@ -14,6 +15,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class CategoryController extends Controller
 {
+
+//    /**
+//     * @Route("/category")
+//     */
+//    public function publicAction()
+//    {
+//        $session = new Session();
+//        $em = $this->getDoctrine()->getManager();
+//        $categories = $em->getRepository('wcshackathonBundle:Category')->findAll();
+//
+//        return $this->render('wcshackathonBundle:Default:category.html.twig',
+//            array(
+//                'categories' => $categories,
+//                'user' => $session->get('username'),
+//            ));
+//    }
     /**
      * Lists all category entities.
      *
@@ -133,4 +150,6 @@ class CategoryController extends Controller
             ->getForm()
         ;
     }
+
+
 }
