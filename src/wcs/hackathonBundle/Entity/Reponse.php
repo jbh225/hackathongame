@@ -27,8 +27,8 @@ class Reponse
      * @ORM\Column(name="answer", type="text")
      */
     private $answer;
-<<<<<<< HEAD
-=======
+
+
     /**
      * @var string
      *
@@ -53,17 +53,13 @@ class Reponse
         $this->choice = $choice;
 
     }
->>>>>>> 01432522cf8d2947ba43d3004ae274fd35b21641
+
 
     /**
      * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponses")
      */
     private $question;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 01432522cf8d2947ba43d3004ae274fd35b21641
     /**
      * Get id
      *
