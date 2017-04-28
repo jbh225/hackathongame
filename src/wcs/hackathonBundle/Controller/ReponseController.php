@@ -17,7 +17,7 @@ class ReponseController extends Controller
     /**
      * Lists all reponse entities.
      *
-     * @Route("/", name="reponse_index")
+     * @Route("/reponse", name="reponse_index")
      * @Method("GET")
      */
     public function indexAction()
