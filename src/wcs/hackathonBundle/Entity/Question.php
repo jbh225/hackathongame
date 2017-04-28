@@ -21,16 +21,21 @@ class Question
      */
     private $id;
 
+
     /**
      * @var string
      *
      * @ORM\Column(name="content", type="text")
      */
+
+
+
     private $content;
 
     /**
      * @var string
      *
+
      * @ORM\Column(name="choice", type="text", nullable=true)
      */
     private $choice;
