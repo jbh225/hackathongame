@@ -1,10 +1,17 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: malik
+ * Date: 28/04/17
+ * Time: 02:03
+ */
 
 namespace wcs\hackathonBundle\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
+
+
 
 class DefaultController extends Controller
 {

@@ -24,41 +24,14 @@ class Question
     /**
      * @var string
      *
-     * @ORM\Column(name="category_id", type="string", length=255)
+     * @ORM\Column(name="content", type="text")
      */
-
-
-
-    private  $category_id;
-
-    /**
-     * @return string
-     */
-    public function getCategoryId()
-    {
-        return $this->category_id;
-    }
-
-    /**
-     * @param string $category_id
-     */
-    public function setCategoryId($category_id)
-    {
-        $this->category_id = $category_id;
-    }
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="string", length=255)
-     */
-
     private $content;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="choice", type="string", length=255)
+     * @ORM\Column(name="choice", type="text", nullable=true)
      */
     private $choice;
 
@@ -66,11 +39,11 @@ class Question
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="questions")
      */
     private $category;
-
     /**
      * @ORM\OneToMany(targetEntity="Reponse", mappedBy="question")
      */
     private $reponses;
+
     /**
      * Get id
      *

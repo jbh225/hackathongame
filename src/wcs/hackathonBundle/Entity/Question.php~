@@ -24,14 +24,14 @@ class Question
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255)
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="choice", type="string", length=255)
+     * @ORM\Column(name="choice", type="text", nullable=true)
      */
     private $choice;
 
@@ -39,11 +39,11 @@ class Question
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="questions")
      */
     private $category;
-
     /**
      * @ORM\OneToMany(targetEntity="Reponse", mappedBy="question")
      */
     private $reponses;
+
     /**
      * Get id
      *

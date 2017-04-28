@@ -24,7 +24,7 @@ class Reponse
     /**
      * @var string
      *
-     * @ORM\Column(name="answer", type="string", length=255)
+     * @ORM\Column(name="answer", type="text")
      */
     private $answer;
 
@@ -32,7 +32,6 @@ class Reponse
      * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponses")
      */
     private $question;
-
 
     /**
      * Get id

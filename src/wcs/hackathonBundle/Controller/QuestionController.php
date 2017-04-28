@@ -2,40 +2,135 @@
 
 namespace wcs\hackathonBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Session\Session;
 use wcs\hackathonBundle\Entity\Question;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use wcs\hackathonBundle\Entity\Reponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Question controller.
+ *
+ * @Route("question")
+ */
 class QuestionController extends Controller
 {
-
     /**
-     * @Route("/question/{catChoose}")
+     * Lists all question entities.
+     *
+     * @Route("/", name="question_index")
+     * @Method("GET")
      */
-    public function questionAction($catChoose)
+    public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $question = $em->getRepository('wcshackathonBundle:Question')->findBy(array('category_id' => $catChoose));
 
-        $rng = rand(0, count($question)-1);
-        $selectedQuestion = $question[$rng];
+        $questions = $em->getRepository('wcshackathonBundle:Question')->findAll();
 
-        return $this->render('wcshackathonBundle:Default:questions.html.twig', array('question' => $selectedQuestion));
+        return $this->render('question/index.html.twig', array(
+            'questions' => $questions,
+        ));
     }
 
     /**
-     * @Route("/respond/{myQuestion}/{answer}")
+     * Creates a new question entity.
+     *
+     * @Route("/new", name="question_new")
+     * @Method({"GET", "POST"})
      */
-    public function respondAction($myQuestion , Reponse $answer)
+    public function newAction(Request $request)
     {
-        var_dump($answer->getAnswer());die();
+        $question = new Question();
+        $form = $this->createForm('wcs\hackathonBundle\Form\QuestionType', $question);
+        $form->handleRequest($request);
 
-        $session = new Session();
-        $em = $this->getDoctrine()->getManager();
-        $getQuestion = $em->getRepository('wcshackathonBundle:Reponse')->findOneBy(array('question_id' => $myQuestion));
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($question);
+            $em->flush();
 
-        return $this->render('wcshackathonBundle:Default:score.html.twig', array('question' => $selectedQuestion));
+            return $this->redirectToRoute('question_show', array('id' => $question->getId()));
+        }
+
+        return $this->render('question/new.html.twig', array(
+            'question' => $question,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a question entity.
+     *
+     * @Route("/{id}", name="question_show")
+     * @Method("GET")
+     */
+    public function showAction(Question $question)
+    {
+        $deleteForm = $this->createDeleteForm($question);
+
+        return $this->render('question/show.html.twig', array(
+            'question' => $question,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Displays a form to edit an existing question entity.
+     *
+     * @Route("/{id}/edit", name="question_edit")
+     * @Method({"GET", "POST"})
+     */
+    public function editAction(Request $request, Question $question)
+    {
+        $deleteForm = $this->createDeleteForm($question);
+        $editForm = $this->createForm('wcs\hackathonBundle\Form\QuestionType', $question);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('question_edit', array('id' => $question->getId()));
+        }
+
+        return $this->render('question/edit.html.twig', array(
+            'question' => $question,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Deletes a question entity.
+     *
+     * @Route("/{id}", name="question_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction(Request $request, Question $question)
+    {
+        $form = $this->createDeleteForm($question);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($question);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('question_index');
+    }
+
+    /**
+     * Creates a form to delete a question entity.
+     *
+     * @param Question $question The question entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Question $question)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('question_delete', array('id' => $question->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
     }
 }

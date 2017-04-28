@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Highscore</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ highscore.id }}</td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td>{{ highscore.user }}</td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td>{{ highscore.score }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('highscore_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('highscore_edit', { 'id': highscore.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
