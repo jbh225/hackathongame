@@ -17,7 +17,7 @@ class HighscoreController extends Controller
     /**
      * Lists all highscore entities.
      *
-     * @Route("/", name="highscore_index")
+     * @Route("/highscore", name="highscore_index")
      * @Method("GET")
      */
     public function indexAction()
